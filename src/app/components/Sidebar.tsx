@@ -11,7 +11,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-grow-35 bg-gray-700 h-screen">
+    <div className="flex bg-gray-700 h-screen">
       {/* sidebarLeft */}
       <div className="items-center bg-gray-900 px-2 py-2 space-y-3">
         <ServerIcon />
@@ -20,19 +20,19 @@ const Sidebar = () => {
 
       {/* sidebarRight */}
       <div className="bg-gray-800">
-        <div className="text-white flex items-center p-5 w-72 justify-between">
+        <div className="text-white flex items-center p-5 w-72 justify-between border-b border-black">
           <h3>Discord</h3>
           <ExpandMoreIcon />
         </div>
 
         {/* sidebarChannels */}
-        <div className="p-5 text-white">
+        <div className=" text-white pt-5">
           <div className="flex justify-between">
             <div className="flex">
               <ExpandMoreIcon />
               <h4>プログラミングチャンネル</h4>
             </div>
-            <AddIcon className="cursor-pointer" />
+            <AddIcon className="mr-5 cursor-pointer" />
           </div>
 
           <div className="pl-5 mt-2">
@@ -42,7 +42,7 @@ const Sidebar = () => {
             <SidebarChannel />
           </div>
 
-          <div className="absolute bottom-0 flex pt-3 items-center pb-3 border-t border-gray-400 w-max space-x-7">
+          <div className="absolute bottom-0 flex p-3 items-center bg-gray-900 w-72 justify-between">
             <div className="flex items-center justify-between">
               <Image
                 src="/halloween.png"
