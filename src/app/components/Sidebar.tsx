@@ -3,6 +3,11 @@ import ServerIcon from "./ServerIcon";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddIcon from "@mui/icons-material/Add";
 import SidebarChannel from "./SidebarChannel";
+import { ImageResponse } from "next/dist/compiled/@vercel/og";
+import Image from "next/image";
+import MicIcon from "@mui/icons-material/Mic";
+import HeadphonesIcon from "@mui/icons-material/Headphones";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 const Sidebar = () => {
   return (
@@ -35,6 +40,25 @@ const Sidebar = () => {
             <SidebarChannel />
             <SidebarChannel />
             <SidebarChannel />
+          </div>
+
+          <div>
+            <div>
+              <Image
+                src="/halloween.png"
+                alt=""
+                width={55}
+                height={55}
+                className="rounded-full"
+              />
+              <div>MatsBACCANO</div>
+              <span>#1234</span>
+            </div>
+            <div>
+              <MicIcon />
+              <HeadphonesIcon />
+              <SettingsIcon />
+            </div>
           </div>
         </div>
       </div>
