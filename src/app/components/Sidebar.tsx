@@ -1,6 +1,7 @@
 import React from "react";
 import ServerIcon from "./ServerIcon";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import AddIcon from "@mui/icons-material/Add";
 
 const Sidebar = () => {
   return (
@@ -19,6 +20,15 @@ const Sidebar = () => {
         </div>
 
         {/* sidebarChannels */}
+        <div className="p-5 text-white">
+          <div className="flex justify-between">
+            <div className="flex">
+              <ExpandMoreIcon />
+              <h4>プログラミングチャンネル</h4>
+            </div>
+            <AddIcon className="cursor-pointer" />
+          </div>
+        </div>
       </div>
     </div>
   );
