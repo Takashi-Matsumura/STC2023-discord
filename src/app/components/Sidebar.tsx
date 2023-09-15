@@ -2,6 +2,7 @@ import React from "react";
 import ServerIcon from "./ServerIcon";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddIcon from "@mui/icons-material/Add";
+import SidebarChannel from "./SidebarChannel";
 
 const Sidebar = () => {
   return (
@@ -27,6 +28,13 @@ const Sidebar = () => {
               <h4>プログラミングチャンネル</h4>
             </div>
             <AddIcon className="cursor-pointer" />
+          </div>
+
+          <div className="pl-5 mt-2">
+            <SidebarChannel />
+            <SidebarChannel />
+            <SidebarChannel />
+            <SidebarChannel />
           </div>
         </div>
       </div>
