@@ -1,5 +1,6 @@
 import React from "react";
 import ServerIcon from "./ServerIcon";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const Sidebar = () => {
   return (
@@ -12,9 +13,12 @@ const Sidebar = () => {
 
       {/* sidebarRight */}
       <div className="bg-gray-800">
-        <div>
+        <div className="text-white flex items-center p-5 w-72 justify-between">
           <h3>Discord</h3>
+          <ExpandMoreIcon />
         </div>
+
+        {/* sidebarChannels */}
       </div>
     </div>
   );
