@@ -42,19 +42,21 @@ const Sidebar = () => {
             <SidebarChannel />
           </div>
 
-          <div>
-            <div>
+          <div className="absolute bottom-0 flex pt-3 items-center pb-3 border-t border-gray-400 w-max space-x-7">
+            <div className="flex items-center justify-between">
               <Image
                 src="/halloween.png"
                 alt=""
-                width={55}
-                height={55}
+                width={40}
+                height={40}
                 className="rounded-full"
               />
-              <div>MatsBACCANO</div>
-              <span>#1234</span>
+              <div className="ml-2 font-light">
+                <h4 className="text-sm">MatsBACCANO</h4>
+                <span className="text-xs">#1234</span>
+              </div>
             </div>
-            <div>
+            <div className="flex items-center text-gray-400">
               <MicIcon />
               <HeadphonesIcon />
               <SettingsIcon />
