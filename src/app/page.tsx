@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className="flex">
       {/* sidebar */}
-      <Sidebar />
+      {/* <Sidebar /> */}
 
       {/* chat */}
       <Chat />
