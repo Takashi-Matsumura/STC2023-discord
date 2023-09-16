@@ -8,22 +8,26 @@ import SearchIcon from "@mui/icons-material/Search";
 const ChatHeader = () => {
   return (
     <div className="flex justify-between items-center pt-2">
-      <div>
-        <h3>
-          <span>#</span>
+      <div className="pl-3">
+        <h3 className="text-white">
+          <span className="text-gray-400 pr-3">#</span>
           Udemy
         </h3>
       </div>
 
-      <div>
-        <NotificationsIcon />
-        <PushPinIcon />
-        <PeopleAltIcon />
-        <div>
-          <input type="text" placeholder="検索" />
+      <div className="pr-3 flex items-center space-x-3 text-gray-400">
+        <NotificationsIcon className="cursor-pointer" />
+        <PushPinIcon className="cursor-pointer" />
+        <PeopleAltIcon className="cursor-pointer" />
+        <div className="bg-gray-900 rounded-md pl-3">
+          <input
+            type="text"
+            placeholder="検索"
+            className="bg-transparent outline-none text-white"
+          />
           <SearchIcon />
         </div>
-        <HelpIcon />
+        <HelpIcon className="cursor-pointer" />
       </div>
     </div>
   );
