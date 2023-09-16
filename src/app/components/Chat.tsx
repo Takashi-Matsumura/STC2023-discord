@@ -1,5 +1,6 @@
 import React from "react";
 import ChatHeader from "./ChatHeader";
+import ChatInput from "./ChatInput";
 
 const Chat = () => {
   return (
@@ -11,7 +12,7 @@ const Chat = () => {
       <div></div>
 
       {/* chatInput */}
-      <div></div>
+      <ChatInput />
     </div>
   );
 };
