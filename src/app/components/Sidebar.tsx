@@ -11,7 +11,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 
 const Sidebar = () => {
   return (
-    <div className="flex bg-gray-700 h-screen">
+    <div className="flex h-screen">
       {/* sidebarLeft */}
       <div className="items-center bg-gray-900 px-2 py-2 space-y-3">
         <ServerIcon />
