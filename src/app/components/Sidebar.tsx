@@ -14,7 +14,7 @@ const Sidebar = () => {
     <div className="flex h-screen">
       {/* sidebarLeft */}
       <div className="items-center bg-gray-900 px-2 py-2 space-y-3">
-        <ServerIcon />
+        <ServerIcon src="/discordIcon.png" />
         <ServerIcon />
       </div>
 
