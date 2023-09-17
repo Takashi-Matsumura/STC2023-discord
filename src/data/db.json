@@ -1,0 +1,35 @@
+{
+  "messages": [
+    {
+      "id": "1",
+      "user": "aaa",
+      "date": "2023-09-17",
+      "channelid": "1",
+      "message": "Hello aaa"
+    },
+    {
+      "id": "2",
+      "user": "MatsBACCANO",
+      "date": "2023-09-17",
+      "channelid": "1",
+      "message": "Hello World!"
+    },
+    {
+      "id": "3",
+      "user": "MatsBACCANO",
+      "date": "2023-09-17",
+      "channelid": "1",
+      "message": "日本語の表示テスト"
+    }
+  ],
+  "channels": [
+    {
+      "id": "1",
+      "name": "general"
+    },
+    {
+      "id": "2",
+      "name": "random"
+    }
+  ]
+}

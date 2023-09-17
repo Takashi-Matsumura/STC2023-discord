@@ -8,8 +8,13 @@ import Image from "next/image";
 import MicIcon from "@mui/icons-material/Mic";
 import HeadphonesIcon from "@mui/icons-material/Headphones";
 import SettingsIcon from "@mui/icons-material/Settings";
+import { Channel } from "@/types";
 
-const Sidebar = () => {
+interface SidebarProps {
+  channels: Channel[];
+}
+
+const Sidebar = ({ channels }: SidebarProps) => {
   return (
     <div className="flex h-screen">
       {/* sidebarLeft */}
@@ -36,13 +41,14 @@ const Sidebar = () => {
           </div>
 
           <div className="pl-5 mt-2">
-            <SidebarChannel />
-            <SidebarChannel />
-            <SidebarChannel />
-            <SidebarChannel />
+            {
+              /* sidebarChannel */
+              channels &&
+                channels.map((channel) => <SidebarChannel channel={channel} />)
+            }
           </div>
 
-          <div className="absolute bottom-0 flex p-3 w-full items-center bg-gray-900 justify-between">
+          <div className="absolute bottom-0 flex px-3 py-4 w-full items-center bg-gray-900 justify-between">
             <div className="flex items-center justify-between">
               <Image
                 src="/halloween.png"

@@ -9,7 +9,7 @@ const ChatInput = () => {
     <div className="absolute bottom-0 w-full mb-2">
       <div className="flex items-center justify-between m-2 px-4 bg-gray-600 rounded-md text-gray-400">
         <div className="flex items-center">
-          <AddCircle />
+          <AddCircle className="cursor-pointer" />
           <form>
             <input
               type="text"
@@ -23,9 +23,9 @@ const ChatInput = () => {
         </div>
 
         <div className="space-x-4">
-          <CardGiftcardIcon />
-          <GifBoxIcon />
-          <EmojiEmotionsIcon />
+          <CardGiftcardIcon className="cursor-pointer" />
+          <GifBoxIcon className="cursor-pointer" />
+          <EmojiEmotionsIcon className="cursor-pointer" />
         </div>
       </div>
     </div>
