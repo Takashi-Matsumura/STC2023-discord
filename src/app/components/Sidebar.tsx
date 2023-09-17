@@ -19,8 +19,8 @@ const Sidebar = () => {
       </div>
 
       {/* sidebarRight */}
-      <div className="bg-gray-800">
-        <div className="text-white flex items-center p-5 w-72 justify-between border-b border-black">
+      <div className="bg-gray-800 w-72 relative">
+        <div className="text-white flex w-full items-center p-5 justify-between border-b border-black">
           <h3>Discord</h3>
           <ExpandMoreIcon />
         </div>
@@ -42,17 +42,17 @@ const Sidebar = () => {
             <SidebarChannel />
           </div>
 
-          <div className="absolute bottom-0 flex p-3 items-center bg-gray-900 w-72 justify-between">
+          <div className="absolute bottom-0 flex p-3 w-full items-center bg-gray-900 justify-between">
             <div className="flex items-center justify-between">
               <Image
                 src="/halloween.png"
                 alt=""
-                width={40}
-                height={40}
+                width={30}
+                height={30}
                 className="rounded-full"
               />
               <div className="ml-2 font-light">
-                <h4 className="text-sm">MatsBACCANO</h4>
+                <h4 className="text-sm -mb-2">MatsBACCANO</h4>
                 <span className="text-xs">#1234</span>
               </div>
             </div>
