@@ -1,20 +1,23 @@
-import Chat from "./components/Chat";
-import Sidebar from "./components/Sidebar";
-import { getAllMessages, getAllChannels } from "@/api";
+"use client";
 
-export default async function Home() {
-  const messages = await getAllMessages();
-  const channels = await getAllChannels();
-  //console.log(messages);
-  //console.log(channels);
+import Chat from "./components/Chat";
+import Login from "./components/Login";
+import Sidebar from "./components/Sidebar";
+import { UserAuth } from "./context/AuthContext";
+
+export default function Home() {
+  const { user } = UserAuth();
 
   return (
-    <div className="flex">
-      {/* sidebar */}
-      <Sidebar channels={channels} />
-
-      {/* chat */}
-      <Chat messages={messages} />
+    <div>
+      {user ? (
+        <div className="flex">
+          <Sidebar />
+          <Chat />
+        </div>
+      ) : (
+        <Login />
+      )}
     </div>
   );
 }

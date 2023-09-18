@@ -1,20 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ServerIcon from "./ServerIcon";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddIcon from "@mui/icons-material/Add";
-import SidebarChannel from "./SidebarChannel";
-import { ImageResponse } from "next/dist/compiled/@vercel/og";
 import Image from "next/image";
-import MicIcon from "@mui/icons-material/Mic";
-import HeadphonesIcon from "@mui/icons-material/Headphones";
 import SettingsIcon from "@mui/icons-material/Settings";
+import CancelIcon from "@mui/icons-material/Cancel";
 import { Channel } from "@/types";
+import { getAllChannels } from "@/api";
+import { UserAuth } from "../context/AuthContext";
 
-interface SidebarProps {
-  channels: Channel[];
-}
+const Sidebar = () => {
+  //const channels = await getAllChannels();
+  const { user, logOut } = UserAuth();
 
-const Sidebar = ({ channels }: SidebarProps) => {
+  const handleSignOut = async () => {
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    console.log(user);
+  }, []);
+
   return (
     <div className="flex h-screen">
       {/* sidebarLeft */}
@@ -43,8 +53,8 @@ const Sidebar = ({ channels }: SidebarProps) => {
           <div className="pl-5 mt-2">
             {
               /* sidebarChannel */
-              channels &&
-                channels.map((channel) => <SidebarChannel channel={channel} />)
+              // channels &&
+              //   channels.map((channel) => <SidebarChannel channel={channel} />)
             }
           </div>
 
@@ -58,14 +68,13 @@ const Sidebar = ({ channels }: SidebarProps) => {
                 className="rounded-full"
               />
               <div className="ml-2 font-light">
-                <h4 className="text-sm -mb-2">MatsBACCANO</h4>
-                <span className="text-xs">#1234</span>
+                <h4 className="text-sm -mb-2">{user.displayName}</h4>
+                <span className="text-xs">{user.email}</span>
               </div>
             </div>
-            <div className="flex items-center text-gray-400">
-              <MicIcon />
-              <HeadphonesIcon />
-              <SettingsIcon />
+            <div className="flex items-center text-gray-400 space-x-2">
+              <CancelIcon onClick={handleSignOut} className="cursor-pointer" />
+              <SettingsIcon className="cursor-pointer" />
             </div>
           </div>
         </div>

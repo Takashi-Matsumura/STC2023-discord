@@ -3,19 +3,18 @@ import ChatHeader from "./ChatHeader";
 import ChatInput from "./ChatInput";
 import ChatMessageList from "./ChatMessageList";
 import { Message } from "@/types";
+import { getAllMessages } from "@/api";
 
-interface ChatProps {
-  messages: Message[];
-}
+const Chat = () => {
+  //const messages = await getAllMessages();
 
-const Chat = ({ messages }: ChatProps) => {
   return (
     <div className="bg-gray-700 w-full relative h-screen">
       {/* chatHeader */}
       <ChatHeader />
 
       {/* chatMessageList */}
-      <ChatMessageList provider={messages} />
+      <ChatMessageList provider={null} />
 
       {/* chatInput */}
       <ChatInput />
