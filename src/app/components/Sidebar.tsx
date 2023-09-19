@@ -10,6 +10,7 @@ import { UserAuth } from "../context/AuthContext";
 import { db } from "../../firebase";
 import SidebarChannel from "./SidebarChannel";
 import useCollection from "@/hooks/useCollection";
+import { addDoc, collection } from "firebase/firestore";
 
 const Sidebar = () => {
   //const channels = await getAllChannels();
@@ -24,6 +25,16 @@ const Sidebar = () => {
   };
 
   const { documents: channels } = useCollection("channels");
+
+  const addChannel = async () => {
+    let channelName: string | null = prompt("新しいチャンネルを作成します");
+
+    if (channelName) {
+      await addDoc(collection(db, "channels"), {
+        channelName: channelName,
+      });
+    }
+  };
 
   return (
     <div className="flex h-screen">
@@ -47,7 +58,10 @@ const Sidebar = () => {
               <ExpandMoreIcon />
               <h4>プログラミングチャンネル</h4>
             </div>
-            <AddIcon className="mr-5 cursor-pointer" />
+            <AddIcon
+              className="mr-5 cursor-pointer"
+              onClick={() => addChannel()}
+            />
           </div>
 
           <div className="pl-5 mt-2">
