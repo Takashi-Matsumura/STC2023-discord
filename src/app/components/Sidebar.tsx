@@ -1,13 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import ServerIcon from "./ServerIcon";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddIcon from "@mui/icons-material/Add";
 import Image from "next/image";
 import SettingsIcon from "@mui/icons-material/Settings";
 import CancelIcon from "@mui/icons-material/Cancel";
-import { Channel } from "@/types";
 import { getAllChannels } from "@/api";
 import { UserAuth } from "../context/AuthContext";
+import { db } from "../../firebase";
+import SidebarChannel from "./SidebarChannel";
+import useCollection from "@/hooks/useCollection";
 
 const Sidebar = () => {
   //const channels = await getAllChannels();
@@ -21,9 +23,7 @@ const Sidebar = () => {
     }
   };
 
-  useEffect(() => {
-    console.log(user);
-  }, []);
+  const { documents: channels } = useCollection("channels");
 
   return (
     <div className="flex h-screen">
@@ -51,11 +51,16 @@ const Sidebar = () => {
           </div>
 
           <div className="pl-5 mt-2">
-            {
-              /* sidebarChannel */
-              // channels &&
-              //   channels.map((channel) => <SidebarChannel channel={channel} />)
-            }
+            {/* sidebarChannel */}
+            {channels.map((channel) => (
+              <SidebarChannel
+                channel={channel}
+                id={channel.id}
+                key={channel.id}
+              />
+            ))}
+            {/* // channels &&
+              //   channels.map((channel) => <SidebarChannel channel={channel} /> */}
           </div>
 
           <div className="absolute bottom-0 flex px-3 py-4 w-full items-center bg-gray-900 justify-between">
