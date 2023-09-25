@@ -1,4 +1,15 @@
-import { Message, Channel } from "@/types";
+export interface Message {
+  id: string;
+  user: string;
+  date: string;
+  channelid: string;
+  message: string;
+}
+
+export interface Channel {
+  id: string;
+  name: string;
+}
 
 const baseUrl = "http://localhost:3001";
 

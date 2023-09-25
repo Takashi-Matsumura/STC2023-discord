@@ -1,18 +1,18 @@
 import React from "react";
 import ChatMessage from "./ChatMessage";
-import { Message } from "@/types";
 
-interface ChatMessageListProps {
-  provider: Message[];
-}
+// interface ChatMessageListProps {
+//   provider: Message[];
+// }
 
-const ChatMessageList = ({ provider }: ChatMessageListProps) => {
+const ChatMessageList = () => {
   return (
     <div className="pt-5 space-y-5">
       {
         /* chatMessage */
-        provider && provider.map((message) => <ChatMessage message={message} />)
+        //provider && provider.map((message) => <ChatMessage message={message} />)
       }
+      <ChatMessage />
     </div>
   );
 };

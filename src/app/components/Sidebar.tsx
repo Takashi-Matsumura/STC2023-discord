@@ -5,7 +5,6 @@ import AddIcon from "@mui/icons-material/Add";
 import Image from "next/image";
 import SettingsIcon from "@mui/icons-material/Settings";
 import CancelIcon from "@mui/icons-material/Cancel";
-import { getAllChannels } from "@/api";
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../../firebase";
 import SidebarChannel from "./SidebarChannel";
@@ -13,7 +12,6 @@ import useCollection from "@/hooks/useCollection";
 import { addDoc, collection } from "firebase/firestore";
 
 const Sidebar = () => {
-  //const channels = await getAllChannels();
   const { user, logOut } = UserAuth();
 
   const handleSignOut = async () => {

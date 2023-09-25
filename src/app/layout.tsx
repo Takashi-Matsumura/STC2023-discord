@@ -4,6 +4,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Noto_Sans_JP } from "next/font/google";
 import { AuthContextProvider } from "./context/AuthContext";
+import { ChannelContextProvider } from "./context/ChannelContext";
 
 const notojp = Noto_Sans_JP({
   subsets: ["latin"],
@@ -24,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body style={{ fontFamily: `var(--noto-sans-jp)` }}>
-        <AuthContextProvider>{children}</AuthContextProvider>
+        <AuthContextProvider>
+          <ChannelContextProvider>{children}</ChannelContextProvider>
+        </AuthContextProvider>
       </body>
     </html>
   );
