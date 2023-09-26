@@ -1,6 +1,6 @@
 import { DocumentData } from "firebase/firestore";
-import React from "react";
-import { useUpdateChannel } from "../context/ChannelContext";
+import { useChannel, useUpdateChannel } from "../context/ChannelContext";
+import { useEffect } from "react";
 
 type Props = {
   id: string;
@@ -9,6 +9,15 @@ type Props = {
 
 const SidebarChannel = (props: Props) => {
   const { id, channel } = props;
+
+  const _channel = useChannel();
+  useEffect(() => {
+    if (_channel.id === null && _channel.name === null) {
+      setChannel({ id: id, name: channel.channel.channelName });
+      console.log("setChannel");
+    }
+    console.log("useEffecting...");
+  }, []);
 
   const setChannel = useUpdateChannel();
   const changeChannel = () => {

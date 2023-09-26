@@ -10,7 +10,7 @@ const ChatHeader = () => {
   const [searchText, setSearchText] = useState<string>("");
 
   const channel = useChannel();
-  console.log(channel);
+  //console.log(channel);
 
   return (
     <div className="flex justify-between items-center pt-2">

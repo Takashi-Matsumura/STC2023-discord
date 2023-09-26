@@ -3,24 +3,51 @@ import AddCircle from "@mui/icons-material/AddCircle";
 import CardGiftcardIcon from "@mui/icons-material/CardGiftcard";
 import GifBoxIcon from "@mui/icons-material/GifBox";
 import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
-import { Timestamp, collection, serverTimestamp } from "firebase/firestore";
+import {
+  CollectionReference,
+  DocumentData,
+  DocumentReference,
+  Timestamp,
+  addDoc,
+  collection,
+  serverTimestamp,
+} from "firebase/firestore";
 import { db } from "@/firebase";
+import { useChannel } from "../context/ChannelContext";
+import { UserAuth } from "../context/AuthContext";
 
 const ChatInput = () => {
   const [inputText, setInputText] = useState<string>("");
 
-  const sendMessage = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const channel = useChannel();
+  const { user } = UserAuth();
+
+  const sendMessage = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
     e.preventDefault();
 
     //channelsコレクションの中にあるmessagesコレクションの中にメッセージ情報を追加する
-    //const collectionRef: CollectionReference<DocumentData> = collection(db, "channels", String(channelId), "messages");
+    const collectionRef: CollectionReference<DocumentData> = collection(
+      db,
+      "channels",
+      String(channel.id),
+      "messages"
+    );
 
-    // const docRef: DocumentReference<CodumentData> =  await addDoc(collectionRef, {
-    //   message: inputText,
-    //   Timestamp: serverTimestamp(),
-    //   user: user,
-    // });
-    // console.log(docRef);
+    const docRef: DocumentReference<DocumentData> = await addDoc(
+      collectionRef,
+      {
+        message: inputText,
+        timestamp: serverTimestamp(),
+        user: {
+          displayName: user.displayName,
+          email: user.email,
+          photo: user.photoURL,
+          uid: user.uid,
+        },
+      }
+    );
   };
 
   return (

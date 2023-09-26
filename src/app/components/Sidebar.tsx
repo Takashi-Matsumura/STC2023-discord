@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import ServerIcon from "./ServerIcon";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import AddIcon from "@mui/icons-material/Add";
@@ -71,8 +71,6 @@ const Sidebar = () => {
                 key={channel.id}
               />
             ))}
-            {/* // channels &&
-              //   channels.map((channel) => <SidebarChannel channel={channel} /> */}
           </div>
 
           <div className="absolute bottom-0 flex px-3 py-4 w-full items-center bg-gray-900 justify-between">
