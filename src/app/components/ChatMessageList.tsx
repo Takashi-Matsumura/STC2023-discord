@@ -1,18 +1,22 @@
 import React from "react";
 import ChatMessage from "./ChatMessage";
+import { Message } from "./Chat";
 
-// interface ChatMessageListProps {
-//   provider: Message[];
-// }
+type Props = {
+  messages: Message[];
+};
 
-const ChatMessageList = () => {
+const ChatMessageList = ({ messages }: Props) => {
   return (
     <div className="pt-5 space-y-5">
-      {
-        /* chatMessage */
-        //provider && provider.map((message) => <ChatMessage message={message} />)
-      }
-      <ChatMessage />
+      {messages.map((message) => (
+        <ChatMessage
+          key={message.user.uid}
+          message={message.message}
+          timestamp={message.timestamp}
+          user={message.user}
+        />
+      ))}
     </div>
   );
 };

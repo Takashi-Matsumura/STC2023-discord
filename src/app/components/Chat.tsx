@@ -7,7 +7,7 @@ import { useChannel } from "../context/ChannelContext";
 import { Timestamp, collection, onSnapshot } from "firebase/firestore";
 import { db } from "@/firebase";
 
-interface Message {
+export interface Message {
   timestamp: Timestamp;
   message: string;
   user: {
@@ -51,7 +51,7 @@ const Chat = () => {
       <ChatHeader />
 
       {/* chatMessageList */}
-      <ChatMessageList />
+      <ChatMessageList messages={messages} />
 
       {/* chatInput */}
       <ChatInput />
