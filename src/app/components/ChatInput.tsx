@@ -48,21 +48,23 @@ const ChatInput = () => {
         },
       }
     );
+    setInputText("");
   };
 
   return (
-    <div className="absolute bottom-0 w-full mb-2">
-      <div className="flex items-center justify-between m-2 px-4 bg-gray-600 rounded-md text-gray-400">
-        <div className="flex items-center">
+    <div className="mb-2 mx-4">
+      <div className="flex items-center m-2 px-4 bg-gray-600 rounded-md text-gray-400">
+        <div className="flex items-center w-full">
           <AddCircle className="cursor-pointer" />
-          <form>
+          <form className="w-full">
             <input
               type="text"
               placeholder="#Udemyへメッセージを送信"
-              className="p-3 bg-transparent outline-none text-white text-lg"
+              className="p-3 bg-transparent outline-none text-white text-lg w-full"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setInputText(e.target.value)
               }
+              value={inputText}
             />
             <button
               type="submit"
@@ -76,7 +78,7 @@ const ChatInput = () => {
           </form>
         </div>
 
-        <div className="space-x-4">
+        <div className="space-x-4 items-center flex">
           <CardGiftcardIcon className="cursor-pointer" />
           <GifBoxIcon className="cursor-pointer" />
           <EmojiEmotionsIcon className="cursor-pointer" />

@@ -1,6 +1,7 @@
 import React from "react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { Timestamp } from "firebase/firestore";
+import { Avatar } from "@mui/material";
 
 type Props = {
   timestamp: Timestamp;
@@ -19,7 +20,7 @@ const ChatMessage = (props: Props) => {
 
   return (
     <div className="flex items-center p-2 mb-3 text-white">
-      <AccountCircleIcon className="text-5xl mr-3 text-gray-400" />
+      <Avatar src={user?.photo} className="mr-3" />
       <div>
         <h4>
           {user?.displayName}

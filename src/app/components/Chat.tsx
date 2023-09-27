@@ -4,7 +4,13 @@ import ChatInput from "./ChatInput";
 import ChatMessageList from "./ChatMessageList";
 import { useEffect, useState } from "react";
 import { useChannel } from "../context/ChannelContext";
-import { Timestamp, collection, onSnapshot } from "firebase/firestore";
+import {
+  Timestamp,
+  collection,
+  onSnapshot,
+  orderBy,
+  query,
+} from "firebase/firestore";
 import { db } from "@/firebase";
 
 export interface Message {
@@ -31,7 +37,12 @@ const Chat = () => {
       "messages"
     );
 
-    onSnapshot(collectionRef, (snapshot) => {
+    const collectionRefOrderBy = query(
+      collectionRef,
+      orderBy("timestamp", "desc")
+    );
+
+    onSnapshot(collectionRefOrderBy, (snapshot) => {
       let results: Message[] = [];
       snapshot.docs.forEach((doc) => {
         results.push({
@@ -46,7 +57,7 @@ const Chat = () => {
   }, [channel]);
 
   return (
-    <div className="bg-gray-700 w-full relative h-screen">
+    <div className="bg-gray-700 w-full flex flex-col flex-grow-1 h-screen">
       {/* chatHeader */}
       <ChatHeader />
 

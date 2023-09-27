@@ -8,7 +8,7 @@ type Props = {
 
 const ChatMessageList = ({ messages }: Props) => {
   return (
-    <div className="pt-5 space-y-5">
+    <div className="pt-5 space-y-7 h-screen overflow-y-auto">
       {messages.map((message) => (
         <ChatMessage
           key={message.user.uid}
