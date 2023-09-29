@@ -67,14 +67,16 @@ const Chat = () => {
 
       {/* chatMessageList */}
       {/* <ChatMessageList messages={messages} /> */}
-      {messages.map((message, index) => (
-        <ChatMessage
-          key={index}
-          timestamp={message.timestamp}
-          user={message.user}
-          message={message.message}
-        />
-      ))}
+      <div className="pt5 space-y-7 h-screen overflow-y-auto">
+        {messages.map((message, index) => (
+          <ChatMessage
+            key={index}
+            timestamp={message.timestamp}
+            user={message.user}
+            message={message.message}
+          />
+        ))}
+      </div>
 
       {/* chatInput */}
       <ChatInput />

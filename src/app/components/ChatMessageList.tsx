@@ -1,9 +1,9 @@
 import React from "react";
 import ChatMessage from "./ChatMessage";
-import { Message } from "./Chat";
+import { Messages } from "./Chat";
 
 type Props = {
-  messages: Message[];
+  messages: Messages[];
 };
 
 const ChatMessageList = ({ messages }: Props) => {
