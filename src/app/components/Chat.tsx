@@ -5,6 +5,8 @@ import ChatMessageList from "./ChatMessageList";
 import { useEffect, useState } from "react";
 import { useChannel } from "../context/ChannelContext";
 import {
+  DocumentData,
+  QueryDocumentSnapshot,
   Timestamp,
   collection,
   onSnapshot,
@@ -12,8 +14,9 @@ import {
   query,
 } from "firebase/firestore";
 import { db } from "@/firebase";
+import ChatMessage from "./ChatMessage";
 
-export interface Message {
+export interface Messages {
   timestamp: Timestamp;
   message: string;
   user: {
@@ -26,10 +29,10 @@ export interface Message {
 
 const Chat = () => {
   const channel = useChannel();
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Messages[]>([]);
 
   useEffect(() => {
-    console.log(channel);
+    //console.log(channel);
     let collectionRef = collection(
       db,
       "channels",
@@ -37,14 +40,15 @@ const Chat = () => {
       "messages"
     );
 
-    const collectionRefOrderBy = query(
+    let collectionRefOrderBy = query(
       collectionRef,
       orderBy("timestamp", "desc")
     );
 
     onSnapshot(collectionRefOrderBy, (snapshot) => {
-      let results: Message[] = [];
-      snapshot.docs.forEach((doc) => {
+      console.log("onSnapshot: " + channel.id);
+      let results: Messages[] = [];
+      snapshot.docs.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
         results.push({
           timestamp: doc.data().timestamp,
           message: doc.data().message,
@@ -54,7 +58,7 @@ const Chat = () => {
       setMessages(results);
       console.log(results);
     });
-  }, [channel]);
+  }, [channel.id]);
 
   return (
     <div className="bg-gray-700 w-full flex flex-col flex-grow-1 h-screen">
@@ -62,7 +66,15 @@ const Chat = () => {
       <ChatHeader />
 
       {/* chatMessageList */}
-      <ChatMessageList messages={messages} />
+      {/* <ChatMessageList messages={messages} /> */}
+      {messages.map((message, index) => (
+        <ChatMessage
+          key={index}
+          timestamp={message.timestamp}
+          user={message.user}
+          message={message.message}
+        />
+      ))}
 
       {/* chatInput */}
       <ChatInput />
