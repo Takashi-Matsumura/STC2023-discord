@@ -1,7 +1,6 @@
 import React from "react";
 import ChatHeader from "./ChatHeader";
 import ChatInput from "./ChatInput";
-import ChatMessageList from "./ChatMessageList";
 import { useEffect, useState } from "react";
 import { useChannel } from "../context/ChannelContext";
 import {
@@ -32,7 +31,6 @@ const Chat = () => {
   const [messages, setMessages] = useState<Messages[]>([]);
 
   useEffect(() => {
-    //console.log(channel);
     let collectionRef = collection(
       db,
       "channels",
@@ -46,7 +44,6 @@ const Chat = () => {
     );
 
     onSnapshot(collectionRefOrderBy, (snapshot) => {
-      console.log("onSnapshot: " + channel.id);
       let results: Messages[] = [];
       snapshot.docs.forEach((doc: QueryDocumentSnapshot<DocumentData>) => {
         results.push({
@@ -56,7 +53,6 @@ const Chat = () => {
         });
       });
       setMessages(results);
-      console.log(results);
     });
   }, [channel.id]);
 

@@ -1,14 +1,14 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Noto_Sans_JP } from "next/font/google";
+// import { Noto_Sans_JP } from "next/font/google";
 import { AuthContextProvider } from "./context/AuthContext";
 import { ChannelContextProvider } from "./context/ChannelContext";
 
-const notojp = Noto_Sans_JP({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--noto-sans-jp",
-});
+// const notojp = Noto_Sans_JP({
+//   subsets: ["latin"],
+//   display: "swap",
+//   variable: "--noto-sans-jp",
+// });
 
 export const metadata: Metadata = {
   title: "STC2023 Discord Clone",

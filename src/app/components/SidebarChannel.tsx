@@ -14,9 +14,7 @@ const SidebarChannel = (props: Props) => {
   useEffect(() => {
     if (_channel.id === null && _channel.name === null) {
       setChannel({ id: id, name: channel.channel.channelName });
-      console.log("setChannel");
     }
-    console.log("useEffecting...");
   }, []);
 
   const setChannel = useUpdateChannel();

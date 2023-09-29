@@ -19,7 +19,13 @@ const Login = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen space-y-5">
       <div>
-        <Image src="/discordIcon.png" alt="" width={200} height={200} />
+        <Image
+          src="/discordIcon.png"
+          alt=""
+          width={200}
+          height={200}
+          priority
+        />
       </div>
 
       <Button
